@@ -1,0 +1,457 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product Info renders edit product form 1`] = `
+<div
+  className="container card"
+  style={
+    Object {
+      "marginLeft": "10%",
+      "position": "fixed",
+      "width": "60%",
+    }
+  }
+>
+  <form
+    className="card-content"
+    onSubmit={[Function]}
+  >
+    <div>
+      <label>
+        _ID
+      </label>
+      <input
+        disabled={true}
+        name="_id"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "marginBottom": "5px",
+          }
+        }
+        type="text"
+        value={0}
+      />
+      <div
+        className="red-text"
+        style={
+          Object {
+            "marginBottom": "5	px",
+          }
+        }
+      >
+        
+      </div>
+    </div>
+    <div>
+      <label>
+        TITLE
+      </label>
+      <input
+        disabled={false}
+        name="title"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "marginBottom": "5px",
+          }
+        }
+        type="text"
+        value="Watch"
+      />
+      <div
+        className="red-text"
+        style={
+          Object {
+            "marginBottom": "5	px",
+          }
+        }
+      >
+        
+      </div>
+    </div>
+    <div
+      className="card-action"
+      style={
+        Object {
+          "marginBottom": "30px",
+        }
+      }
+    >
+      <button
+        className="btn-flat red lighten-2 left"
+        onClick={[Function]}
+      >
+        Cancel
+      </button>
+      <button
+        className="btn-flat teal right"
+        style={
+          Object {
+            "marginLeft": "10px",
+          }
+        }
+        type="submit"
+      >
+        Create
+      </button>
+      <button
+        className="btn-flat red darken-2 right"
+        disabled={true}
+        onClick={[Function]}
+      >
+        Delete
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Product Info renders new product form 1`] = `
+<div
+  className="container card"
+  style={
+    Object {
+      "marginLeft": "10%",
+      "position": "fixed",
+      "width": "60%",
+    }
+  }
+>
+  <form
+    className="card-content"
+    onSubmit={[Function]}
+  >
+    <div>
+      <label>
+        _ID
+      </label>
+      <input
+        disabled={true}
+        name="_id"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "marginBottom": "5px",
+          }
+        }
+        type="text"
+        value={0}
+      />
+      <div
+        className="red-text"
+        style={
+          Object {
+            "marginBottom": "5	px",
+          }
+        }
+      >
+        
+      </div>
+    </div>
+    <div>
+      <label>
+        TITLE
+      </label>
+      <input
+        disabled={false}
+        name="title"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "marginBottom": "5px",
+          }
+        }
+        type="text"
+        value="Watch"
+      />
+      <div
+        className="red-text"
+        style={
+          Object {
+            "marginBottom": "5	px",
+          }
+        }
+      >
+        
+      </div>
+    </div>
+    <div
+      className="card-action"
+      style={
+        Object {
+          "marginBottom": "30px",
+        }
+      }
+    >
+      <button
+        className="btn-flat red lighten-2 left"
+        onClick={[Function]}
+      >
+        Cancel
+      </button>
+      <button
+        className="btn-flat teal right"
+        style={
+          Object {
+            "marginLeft": "10px",
+          }
+        }
+        type="submit"
+      >
+        Create
+      </button>
+      <button
+        className="btn-flat red darken-2 right"
+        disabled={true}
+        onClick={[Function]}
+      >
+        Delete
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`renders edit product form 1`] = `
+<div
+  className="container card"
+  style={
+    Object {
+      "marginLeft": "10%",
+      "position": "fixed",
+      "width": "60%",
+    }
+  }
+>
+  <form
+    className="card-content"
+    onSubmit={[Function]}
+  >
+    <div>
+      <label>
+        _ID
+      </label>
+      <input
+        disabled={true}
+        name="_id"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "marginBottom": "5px",
+          }
+        }
+        type="text"
+        value={0}
+      />
+      <div
+        className="red-text"
+        style={
+          Object {
+            "marginBottom": "5	px",
+          }
+        }
+      >
+        
+      </div>
+    </div>
+    <div>
+      <label>
+        TITLE
+      </label>
+      <input
+        disabled={false}
+        name="title"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "marginBottom": "5px",
+          }
+        }
+        type="text"
+        value="Watch"
+      />
+      <div
+        className="red-text"
+        style={
+          Object {
+            "marginBottom": "5	px",
+          }
+        }
+      >
+        
+      </div>
+    </div>
+    <div
+      className="card-action"
+      style={
+        Object {
+          "marginBottom": "30px",
+        }
+      }
+    >
+      <button
+        className="btn-flat red lighten-2 left"
+        onClick={[Function]}
+      >
+        Cancel
+      </button>
+      <button
+        className="btn-flat teal right"
+        style={
+          Object {
+            "marginLeft": "10px",
+          }
+        }
+        type="submit"
+      >
+        Create
+      </button>
+      <button
+        className="btn-flat red darken-2 right"
+        disabled={true}
+        onClick={[Function]}
+      >
+        Delete
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`renders new product form 1`] = `
+<div
+  className="container card"
+  style={
+    Object {
+      "marginLeft": "10%",
+      "position": "fixed",
+      "width": "60%",
+    }
+  }
+>
+  <form
+    className="card-content"
+    onSubmit={[Function]}
+  >
+    <div>
+      <label>
+        _ID
+      </label>
+      <input
+        disabled={true}
+        name="_id"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "marginBottom": "5px",
+          }
+        }
+        type="text"
+        value={0}
+      />
+      <div
+        className="red-text"
+        style={
+          Object {
+            "marginBottom": "5	px",
+          }
+        }
+      >
+        
+      </div>
+    </div>
+    <div>
+      <label>
+        TITLE
+      </label>
+      <input
+        disabled={false}
+        name="title"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "marginBottom": "5px",
+          }
+        }
+        type="text"
+        value="Watch"
+      />
+      <div
+        className="red-text"
+        style={
+          Object {
+            "marginBottom": "5	px",
+          }
+        }
+      >
+        
+      </div>
+    </div>
+    <div
+      className="card-action"
+      style={
+        Object {
+          "marginBottom": "30px",
+        }
+      }
+    >
+      <button
+        className="btn-flat red lighten-2 left"
+        onClick={[Function]}
+      >
+        Cancel
+      </button>
+      <button
+        className="btn-flat teal right"
+        style={
+          Object {
+            "marginLeft": "10px",
+          }
+        }
+        type="submit"
+      >
+        Create
+      </button>
+      <button
+        className="btn-flat red darken-2 right"
+        disabled={true}
+        onClick={[Function]}
+      >
+        Delete
+      </button>
+    </div>
+  </form>
+</div>
+`;

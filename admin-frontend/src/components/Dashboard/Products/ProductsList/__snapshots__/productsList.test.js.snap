@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Products list item renders correctly 1`] = `
+<a
+  className="collection-item"
+  href="#!"
+  onClick={[Function]}
+>
+  Watch
+</a>
+`;
+
+exports[`Products list list renders correctly 1`] = `
+<div
+  className="collection col s9"
+  style={
+    Object {
+      "marginLeft": "5%",
+    }
+  }
+>
+  <a
+    className="collection-item"
+    href="#!"
+    onClick={[Function]}
+  >
+    Watch
+  </a>
+  <a
+    className="collection-item"
+    href="#!"
+    onClick={[Function]}
+  >
+    Clock
+  </a>
+</div>
+`;
+
+exports[`item renders correctly 1`] = `
+<a
+  className="collection-item"
+  href="#!"
+  onClick={[Function]}
+>
+  Watch
+</a>
+`;
+
+exports[`list renders correctly 1`] = `
+<div
+  className="collection col s9"
+  style={
+    Object {
+      "marginLeft": "5%",
+    }
+  }
+>
+  <a
+    className="collection-item"
+    href="#!"
+    onClick={[Function]}
+  >
+    Watch
+  </a>
+  <a
+    className="collection-item"
+    href="#!"
+    onClick={[Function]}
+  >
+    Clock
+  </a>
+</div>
+`;
