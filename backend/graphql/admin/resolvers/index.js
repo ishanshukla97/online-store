@@ -49,6 +49,7 @@ module.exports = {
 				img: args.productInput.img,
 				title: args.productInput.title,
 				description: args.productInput.description,
+				category: args.productInput.category,
 				price: args.productInput.price
 			});
 			const result = await product.save();
@@ -70,6 +71,7 @@ module.exports = {
 			product.img = args.productInput.img;
 			product.title = args.productInput.title;
 			product.description = args.productInput.description;
+			product.category = args.productInput.category;
 			product.price = args.productInput.price;
 
 			const result = await product.save();

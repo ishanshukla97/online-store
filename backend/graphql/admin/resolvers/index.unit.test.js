@@ -38,10 +38,11 @@ describe("admin resolvers", () => {
 			{
 				query: `
                 mutation {
-                    createProduct(productInput: { img: "img.jpg", title: "Watch", description: "Smart watch with heart beat sensor", price: 99.9 }){
+                    createProduct(productInput: { img: "img.jpg", title: "Watch", category: "Fashion", description: "Smart watch with heart beat sensor", price: 99.9 }){
 					  _id
 					  img
-                      title
+					  title
+					  category
                       description
                       price
                     }
@@ -63,6 +64,7 @@ describe("admin resolvers", () => {
 					_id: testId,
 					img: "img.jpg",
 					title: "Watch",
+					category: "Fashion",
 					description: "Smart watch with heart beat sensor",
 					price: 99.9
 				}
@@ -76,10 +78,11 @@ describe("admin resolvers", () => {
 			{
 				query: `
                 mutation {
-                    updateProduct(productInput: {img: "new.jpg", title: "2nd gen smart watch", description: "next gen smartwatch with many features", price: 199.9 }, productId: "${testId}") {
+                    updateProduct(productInput: {img: "new.jpg", title: "2nd gen smart watch", category: "Fashion", description: "next gen smartwatch with many features", price: 199.9 }, productId: "${testId}") {
                       _id
                       img
-                      title
+					  title
+					  category
                       description
                       price
                     }
@@ -100,6 +103,7 @@ describe("admin resolvers", () => {
 					_id: testId,
 					img: "new.jpg",
 					title: "2nd gen smart watch",
+					category: "Fashion",
 					description: "next gen smartwatch with many features",
 					price: 199.9
 				}
@@ -116,7 +120,8 @@ describe("admin resolvers", () => {
                     deleteProduct(, productId: "${testId}") {
                       _id
                       img
-                      title
+					  title
+					  category
                       description
                       price
                     }
@@ -137,6 +142,7 @@ describe("admin resolvers", () => {
 					_id: testId,
 					img: "new.jpg",
 					title: "2nd gen smart watch",
+					category: "Fashion",
 					description: "next gen smartwatch with many features",
 					price: 199.9
 				}

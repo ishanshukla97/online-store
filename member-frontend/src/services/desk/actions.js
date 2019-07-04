@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_PRODUCTS } from "./actionType";
+import { FETCH_PRODUCTS } from "./actionTypes";
 
 export const fetchProducts = () => {
 	return async function(dispatch) {
@@ -15,6 +15,7 @@ export const fetchProducts = () => {
 						_id
 						title
 						description
+						category
 						price
 						img
 					}

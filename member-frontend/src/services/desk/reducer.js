@@ -1,4 +1,4 @@
-import { FETCH_PRODUCTS } from "./actionType";
+import { FETCH_PRODUCTS } from "./actionTypes";
 
 const initProducts = [{}];
 

@@ -6,6 +6,7 @@ module.exports = buildSchema(`
         img: String!
         title: String!
         description: String!
+        category: String!
         price: Float!
     }
 
@@ -13,13 +14,6 @@ module.exports = buildSchema(`
         userId: ID!
         token: String!
         ExpirationTime: Int!
-    }
-
-    input ProductInput {
-        img: String!
-        title: String!
-        description: String!
-        price: Float!
     }
 
     input MemberInput {

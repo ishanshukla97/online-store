@@ -13,7 +13,8 @@ export const getProducts = ({ token }) => {
                     title
                     description
                     price
-                    img
+					img
+					category
                 }
             }	
             `
@@ -25,7 +26,10 @@ export const getProducts = ({ token }) => {
 	}
 };
 
-export const create = ({ img, title, description, price }, { token }) => {
+export const create = (
+	{ img, title, description, price, category },
+	{ token }
+) => {
 	try {
 		const res = axios({
 			url: "http://localhost:5000/admin/graphql",
@@ -34,11 +38,12 @@ export const create = ({ img, title, description, price }, { token }) => {
 			data: {
 				query: `
           mutation {
-            createProduct(productInput: { img: "${img}", title: "${title}", description: "${description}", price: ${price} }){
+            createProduct(productInput: { img: "${img}", title: "${title}", category: "${category}", description: "${description}", price: ${price} }){
               _id
               img
               title
-              description
+			  description
+			  category
               price
             }
           }
@@ -51,7 +56,10 @@ export const create = ({ img, title, description, price }, { token }) => {
 	}
 };
 
-export const update = ({ img, title, description, price, _id }, { token }) => {
+export const update = (
+	{ img, title, description, price, _id, category },
+	{ token }
+) => {
 	try {
 		const res = axios({
 			url: "http://localhost:5000/admin/graphql",
@@ -60,11 +68,12 @@ export const update = ({ img, title, description, price, _id }, { token }) => {
 			data: {
 				query: `
             mutation {
-                updateProduct(productInput: {img: "${img}", title: "${title}", description: "${description}", price: ${price} }, productId: "${_id}") {
+                updateProduct(productInput: {img: "${img}", title: "${title}", description: "${description}", category: "${category}", price: ${price} }, productId: "${_id}") {
                   _id
                   img
                   title
-                  description
+				  description
+				  category
                   price
                 }
               }

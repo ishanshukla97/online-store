@@ -7,7 +7,6 @@ import * as actions from "../../services/desk/actions";
 class Desk extends Component {
 	async componentDidMount() {
 		await this.props.fetchProducts();
-		console.log(this.props.desk);
 	}
 
 	render() {
@@ -17,8 +16,8 @@ class Desk extends Component {
 					<Filter />
 				</div>
 				<div className="col s12 m10">
-					{this.props.desk
-						? this.props.desk.map(product => {
+					{this.props.filterDesk
+						? this.props.filterDesk.map(product => {
 								return <Item key={product._id} {...product} />;
 						  })
 						: "Loading..."}
@@ -28,8 +27,8 @@ class Desk extends Component {
 	}
 }
 
-function mapStateToProps({ desk }) {
-	return { desk };
+function mapStateToProps({ filterDesk }) {
+	return { filterDesk };
 }
 
 export default connect(

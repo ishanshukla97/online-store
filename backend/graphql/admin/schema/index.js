@@ -6,6 +6,7 @@ module.exports = buildSchema(`
         img: String!
         title: String!
         description: String!
+        category: String!
         price: Float!
     }
 
@@ -19,6 +20,7 @@ module.exports = buildSchema(`
         img: String!
         title: String!
         description: String!
+        category: String!
         price: Float!
     }
 
