@@ -5,7 +5,7 @@ const ProductInfo = props => {
 	let product = props.products.filter(product => product._id === props.id)[0];
 
 	if (!product || product === {}) {
-		let newProduct = Object.assign({}, props.products[1]);
+		let newProduct = Object.assign({}, props.products[0]);
 
 		Object.keys(newProduct).forEach(k => (newProduct[k] = ""));
 

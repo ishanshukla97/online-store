@@ -2,7 +2,7 @@ import React from "react";
 import Item from "./Item";
 
 const ProductsList = props => {
-	if (props.products.length <= 1) {
+	if (props.products.length < 1) {
 		return <div>Loading...</div>;
 	}
 	return (
