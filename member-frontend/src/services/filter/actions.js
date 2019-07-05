@@ -7,7 +7,7 @@ export const setFilter = filter => {
 
 		if (filter) {
 			filterDesk = state.desk.filter(
-				product => product.category == filter
+				product => product.category === filter
 			);
 		} else filterDesk = state.desk;
 

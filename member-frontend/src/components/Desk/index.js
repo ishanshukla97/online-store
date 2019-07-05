@@ -18,7 +18,13 @@ class Desk extends Component {
 				<div className="col s12 m10">
 					{this.props.filterDesk
 						? this.props.filterDesk.map(product => {
-								return <Item key={product._id} {...product} />;
+								return (
+									<Item
+										key={product._id}
+										{...product}
+										item={product}
+									/>
+								);
 						  })
 						: "Loading..."}
 				</div>

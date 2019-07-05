@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "../../services/cart/actions";
 import "./style.css";
 
-export default function(props) {
+const Header = props => {
 	const renderContent = () => {
 		return (
 			<div>
@@ -10,7 +12,7 @@ export default function(props) {
 					<a href="#!">Login</a>
 				</li>
 				<li>
-					<a href="#!">
+					<a href="#!" onClick={() => props.toggleCart()}>
 						<i className="material-icons">shopping_cart</i>
 					</a>
 				</li>
@@ -30,4 +32,9 @@ export default function(props) {
 			</nav>
 		</div>
 	);
-}
+};
+
+export default connect(
+	null,
+	actions
+)(Header);

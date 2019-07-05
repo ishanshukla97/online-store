@@ -26,7 +26,7 @@ const Filter = props => {
 					key={item}
 					className={
 						"collection-item filter-btn " +
-						(currentFilter == item ? "active" : "")
+						(currentFilter === item ? "active" : "")
 					}
 					onClick={() => onClickFilter(item)}
 				>

@@ -1,5 +1,8 @@
 import React from "react";
 import "./index.css";
+import { connect } from "react-redux";
+import * as actions from "../../../services/cart/actions";
+
 const Item = props => {
 	return (
 		<div className="col m4" key={props._id}>
@@ -19,7 +22,7 @@ const Item = props => {
 						href="#!"
 						className="add-btn btn-floating red waves-effect"
 						onClick={() => {
-							console.log(props.title);
+							props.addCartItem(props.item);
 						}}
 					>
 						<i className="material-icons">add</i>
@@ -30,4 +33,7 @@ const Item = props => {
 	);
 };
 
-export default Item;
+export default connect(
+	null,
+	actions
+)(Item);

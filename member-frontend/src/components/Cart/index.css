@@ -1,0 +1,88 @@
+.cart {
+	width: 450px;
+	max-width: 100%;
+	background-color: #1b1a20;
+	position: fixed;
+	height: 100vh;
+	z-index: 2;
+	right: 0;
+	overflow-y: scroll;
+	animation-name: translateIn;
+	animation-duration: 300ms;
+	animation-timing-function: ease-in;
+}
+
+@keyframes translateIn {
+	0% {
+		right: -500px;
+	}
+
+	100% {
+		right: 0;
+	}
+}
+
+.cross-btn {
+	width: 50px;
+	height: 50px;
+	background-color: #1b1a20;
+	line-height: 60px;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+}
+.cross-btn:hover {
+	background-color: #2a2831;
+}
+
+.remove-item {
+	width: 25px;
+	height: 25px;
+	top: 15px;
+	right: 5%;
+	border-radius: 50%;
+	margin-left: 90%;
+	cursor: pointer;
+}
+.remove-item:hover {
+	background-color: rgba(255, 0, 0, 0.5);
+}
+
+.cart-item {
+	width: 100%;
+	padding: 5px;
+}
+
+.cart-item-heading {
+	color: white;
+	font-weight: 400;
+	font-size: 18pt;
+	width: 75%;
+	text-align: left;
+	padding: 2px 7px;
+	display: inline-block;
+}
+
+.cart-item-details {
+	padding: 2px 10px;
+	font-size: 14pt;
+	font-weight: 200;
+	width: 75%;
+	color: rgb(177, 177, 177);
+	text-align: left;
+
+	display: inline-block;
+}
+
+.cart-item-price {
+	font-size: 18pt;
+	font-weight: 200;
+	text-align: right;
+	width: 25%;
+	color: yellow;
+	display: inline-block;
+}
+
+.hr-margin {
+	border: 1px solid rgb(0, 0, 0);
+}
