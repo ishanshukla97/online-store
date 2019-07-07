@@ -1,0 +1,7 @@
+.form {
+	position: fixed;
+	max-width: 100%;
+	margin: 25%;
+	background-color: white;
+	text-align: center;
+}
