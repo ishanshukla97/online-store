@@ -23,6 +23,7 @@ const Cart = props => {
 			return (
 				<CheckoutForm
 					total={totalPrice}
+					onSubmit={values => props.placeOrder(values)}
 					onCancel={() => setCheckoutView(false)}
 				/>
 			);
