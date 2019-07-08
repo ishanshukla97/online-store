@@ -16,17 +16,49 @@ module.exports = buildSchema(`
         ExpirationTime: Int!
     }
 
-    input MemberInput {
+    type Guest {
+        contact: String!
+        address: String!
+        name: String!
+    }
+
+    type Member {
+        contact: String!
+        password: String!
+        address: String!
+        name: String!
+    }
+
+    union User = Guest | Member
+
+    input MemberLogin {
         username: String!
         password: String!
     }
 
+    input ProductIdQty {
+        _id: ID!
+        quantity: Int!
+    }
+
+    input GuestOrderInput {
+        contact: String!
+        address: String!
+        name: String!
+        products: [ProductIdQty!]!
+    }
+
     type RootQuery {
         products: [Product!]!
-        login(memberInput: MemberInput): AuthData
+        login(memberLogin: MemberLogin): AuthData
+    }
+
+    type RootMutation {
+        createGuestOrder(guestOrderInput: GuestOrderInput): String
     }
 
     schema {
         query: RootQuery
+        mutation: RootMutation
     }
 `);
