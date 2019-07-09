@@ -2,11 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const graphqlHttp = require("express-graphql");
-const adminSchema = require("./graphql/admin/schema");
-const adminResolvers = require("./graphql/admin/resolvers");
-const adminAuth = require("./middleware/admin-auth");
-const memberSchema = require("./graphql/member/schema");
-const memberResolvers = require("./graphql/member/resolvers");
+const adminServer = require("./graphql/admin");
+const memberServer = require("./graphql/member");
 const memberAuth = require("./middleware/member-auth");
 const mongoose = require("mongoose");
 const keys = require("./config/keys");
@@ -15,7 +12,6 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use("/admin", adminAuth);
 
 mongoose
 	.connect(keys.mongoURI)
@@ -26,23 +22,9 @@ mongoose
 		throw err;
 	});
 
-app.use(
-	"/admin/graphql",
-	graphqlHttp({
-		schema: adminSchema,
-		rootValue: adminResolvers,
-		graphiql: true
-	})
-);
+adminServer.applyMiddleware({ app, path: "/admin/graphql" });
 
-app.use(
-	"/member/graphql",
-	graphqlHttp({
-		schema: memberSchema,
-		rootValue: memberResolvers,
-		graphiql: true
-	})
-);
+memberServer.applyMiddleware({ app, path: "/member/graphql" });
 
 const PORT = process.env.PORT || 5000;
 
