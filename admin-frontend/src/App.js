@@ -21,8 +21,8 @@ class App extends Component {
 						<Route path="/dashboard" component={Dashboard} />
 						<Route path="/login" component={Login} />
 						{!this.props.auth && (
-							<Redirect from="/dashboard" to="/login" />
-						)}
+								<Redirect from="/dashboard" to="/login" />
+							) && <Redirect from="/" to="/login" />}
 					</div>
 				</BrowserRouter>
 			</div>

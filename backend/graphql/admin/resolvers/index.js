@@ -3,6 +3,15 @@ const Admin = require("../../../models/admin");
 const Product = require("../../../models/product");
 const keys = require("../../../config/keys");
 const jwt = require("jsonwebtoken");
+const PubSub = require("../../PubSub");
+const pubsub = new PubSub().getInstance();
+const { ORDER_PLACED } = require("../../../utils/constants");
+const {
+	createProduct,
+	updateProduct,
+	deleteProduct,
+	getProducts
+} = require("../../../utils/products");
 
 module.exports = {
 	Query: {
@@ -33,10 +42,7 @@ module.exports = {
 				// if (!req.isAuth){
 				// 	throw new Error("Unauthenticated")
 				// }
-				const products = await Product.find();
-				return products.map(product => {
-					return { ...product._doc, _id: product.id };
-				});
+				return getProducts();
 			} catch (err) {
 				throw err;
 			}
@@ -53,14 +59,8 @@ module.exports = {
 				if (!admin) {
 					throw new Error("Invalid user");
 				}
-				const product = new Product({
-					img: args.productInput.img,
-					title: args.productInput.title,
-					description: args.productInput.description,
-					category: args.productInput.category,
-					price: args.productInput.price
-				});
-				const result = await product.save();
+
+				const result = await createProduct(args);
 				return { ...result._doc, _id: result.id };
 			} catch (err) {
 				throw err;
@@ -71,18 +71,7 @@ module.exports = {
 				throw new Error("Unauthenticated");
 			}
 			try {
-				const product = await Product.findById(args.productId);
-				if (!product) {
-					throw new Error("This product does not exist");
-				}
-
-				product.img = args.productInput.img;
-				product.title = args.productInput.title;
-				product.description = args.productInput.description;
-				product.category = args.productInput.category;
-				product.price = args.productInput.price;
-
-				const result = await product.save();
+				const result = updateProduct(args);
 
 				return { ...result._doc, _id: result.id };
 			} catch (err) {
@@ -94,17 +83,17 @@ module.exports = {
 				throw new Error("Unauthenticated");
 			}
 			try {
-				const product = await Product.findById(args.productId);
-				if (!product) {
-					throw new Error("This product does not exist");
-				}
-
-				const result = await product.remove();
+				const result = deleteProduct(args);
 
 				return { ...result._doc, _id: result.id };
 			} catch (err) {
 				throw err;
 			}
+		}
+	},
+	Subscription: {
+		orderPlaced: {
+			subscribe: () => pubsub.asyncIterator([ORDER_PLACED])
 		}
 	}
 };

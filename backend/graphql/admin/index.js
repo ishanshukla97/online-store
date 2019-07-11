@@ -6,12 +6,23 @@ const adminAuth = require("../../middleware/adminAuth");
 const SERVER = new ApolloServer({
 	typeDefs: TypeDefs,
 	resolvers: Resolvers,
-	context: ({ req }) => {
-		const tokenWithBearer = req.headers.authorization || "";
-		const token = tokenWithBearer.split(" ")[1];
-		const Auth = adminAuth(token);
-
-		return Auth;
+	subscriptions: {
+		onConnect: (connectionParams, webSocket) => {
+			console.log(connectionParams);
+		}
+	},
+	context: async ({ req, connection }) => {
+		if (connection) {
+			// check connection for metadata
+			return connection.context;
+		} else {
+			// check from req
+			const authHeader = req.headers.authorization || "";
+			const token = authHeader.split(" ")[1];
+			const auth = adminAuth(token);
+			console.log(req.headers.authorization, auth);
+			return auth;
+		}
 	},
 	playground: {
 		endpoint: "/admin/graphql",

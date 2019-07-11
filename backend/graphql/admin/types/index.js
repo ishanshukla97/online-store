@@ -1,6 +1,31 @@
 const { gql } = require("apollo-server-express");
 
 module.exports = gql`
+	type ProductIdQty {
+		_id: ID!
+		quantity: Int!
+	}
+
+	type Order {
+		total: Float!
+		status: String!
+		creator: Guest!
+		products: [ProductIdQty!]!
+	}
+
+	type Guest {
+		contact: String!
+		address: String!
+		name: String!
+	}
+
+	type Member {
+		contact: String!
+		password: String!
+		address: String!
+		name: String!
+	}
+
 	type Product {
 		_id: ID!
 		img: String!
@@ -37,5 +62,8 @@ module.exports = gql`
 		createProduct(productInput: ProductInput!): Product!
 		updateProduct(productInput: ProductInput!, productId: String!): Product!
 		deleteProduct(productId: String!): Product!
+	}
+	type Subscription {
+		orderPlaced: Order!
 	}
 `;
