@@ -3,8 +3,9 @@ import { reduxForm, Field } from "redux-form";
 import LoginField from "./LoginField";
 import validatePassword from "../../utils/validatePassword";
 import { Redirect } from "react-router-dom";
-import * as actions from "../../actions";
+import * as actions from "../../services/auth/actions";
 import { connect } from "react-redux";
+import M from "materialize-css";
 
 class LoginForm extends Component {
 	renderInvalidLogin() {
@@ -12,6 +13,7 @@ class LoginForm extends Component {
 			case null:
 				return;
 			case false:
+				M.toast({ html: "Invalid" });
 				return <div className="red-text">Invalid Credentials</div>;
 			default:
 				return <Redirect to="/dashboard" />;
@@ -23,7 +25,7 @@ class LoginForm extends Component {
 			<div className="container">
 				<form
 					onSubmit={this.props.handleSubmit(values =>
-						this.props.fetchUser(values)
+						this.props.fetchUser(values, this.props.client)
 					)}
 				>
 					<Field

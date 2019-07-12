@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import LoginForm from "./LoginForm";
+import { withApollo } from "react-apollo";
 
 class Login extends Component {
 	render() {
@@ -10,10 +11,10 @@ class Login extends Component {
 					marginLeft: "30%"
 				}}
 			>
-				<LoginForm />
+				<LoginForm client={this.props.client} />
 			</div>
 		);
 	}
 }
 
-export default Login;
+export default withApollo(Login);

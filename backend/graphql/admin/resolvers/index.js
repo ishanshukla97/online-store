@@ -71,7 +71,7 @@ module.exports = {
 				throw new Error("Unauthenticated");
 			}
 			try {
-				const result = updateProduct(args);
+				const result = await updateProduct(args);
 
 				return { ...result._doc, _id: result.id };
 			} catch (err) {
@@ -83,7 +83,7 @@ module.exports = {
 				throw new Error("Unauthenticated");
 			}
 			try {
-				const result = deleteProduct(args);
+				const result = await deleteProduct(args);
 
 				return { ...result._doc, _id: result.id };
 			} catch (err) {

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as actions from "../../../actions";
+import * as actions from "../../../services/products/actions";
 import ProductsList from "./ProductsList";
 import ProductInfo from "./ProductInfo";
 import CreateNewBtn from "./createFAB";
+import { withApollo } from "react-apollo";
 
 class Products extends Component {
 	state = { productInfo: false };
@@ -12,28 +13,40 @@ class Products extends Component {
 	componentDidMount() {
 		if (this.props.auth) {
 			console.log("Updated");
-			this.props.fetchProducts(this.props.auth);
+			this.props.fetchProducts(this.props.auth, this.props.client);
 		}
 	}
 
 	async onClickEditSubmit(product) {
 		//Submit edited product
-		await this.props.updateProduct(product, this.props.auth);
+		await this.props.updateProduct(
+			product,
+			this.props.auth,
+			this.props.client
+		);
 		this.setState({ productInfo: false });
-		this.props.fetchProducts(this.props.auth);
+		this.props.fetchProducts(this.props.auth, this.props.client);
 	}
 
 	async onClickRemove(product) {
 		//Delete product
-		await this.props.removeProduct(product, this.props.auth);
+		await this.props.removeProduct(
+			product,
+			this.props.auth,
+			this.props.client
+		);
 		this.setState({ productInfo: false });
-		this.props.fetchProducts(this.props.auth);
+		this.props.fetchProducts(this.props.auth, this.props.client);
 	}
 
 	async onClickCreate(product) {
-		await this.props.createProduct(product, this.props.auth);
+		await this.props.createProduct(
+			product,
+			this.props.auth,
+			this.props.client
+		);
 		this.setState({ productInfo: false });
-		this.props.fetchProducts(this.props.auth);
+		this.props.fetchProducts(this.props.auth, this.props.client);
 	}
 
 	renderContent() {
@@ -83,7 +96,9 @@ function mapStateToProps({ products, auth }) {
 	return { products, auth };
 }
 
-export default connect(
-	mapStateToProps,
-	actions
-)(Products);
+export default withApollo(
+	connect(
+		mapStateToProps,
+		actions
+	)(Products)
+);
