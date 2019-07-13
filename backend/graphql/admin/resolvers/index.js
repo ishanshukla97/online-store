@@ -1,11 +1,11 @@
 const bcrypt = require("bcrypt");
 const Admin = require("../../../models/admin");
-const Product = require("../../../models/product");
 const keys = require("../../../config/keys");
 const jwt = require("jsonwebtoken");
 const PubSub = require("../../PubSub");
 const pubsub = new PubSub().getInstance();
 const { ORDER_PLACED } = require("../../../utils/constants");
+const { orders, setOrderStatus } = require("../../../utils/orders");
 const {
 	createProduct,
 	updateProduct,
@@ -43,6 +43,29 @@ module.exports = {
 				// 	throw new Error("Unauthenticated")
 				// }
 				return getProducts();
+			} catch (err) {
+				throw err;
+			}
+		},
+		orders: async (obj, args, context, info) => {
+			if (!context.isAuth) {
+				throw new Error("Unauthenticated");
+			}
+			try {
+				const result = await orders();
+
+				const populated = result.map(order => {
+					return {
+						...order._doc,
+						products: order.products.map(product => {
+							return {
+								_id: product._id,
+								quantity: product.quantity
+							};
+						})
+					};
+				});
+				return populated;
 			} catch (err) {
 				throw err;
 			}
@@ -86,6 +109,17 @@ module.exports = {
 				const result = await deleteProduct(args);
 
 				return { ...result._doc, _id: result.id };
+			} catch (err) {
+				throw err;
+			}
+		},
+		setOrderStatus: async (parent, args, context, info) => {
+			if (!context.isAuth) {
+				throw new Error("Unauthenticated");
+			}
+			try {
+				const result = await setOrderStatus(args);
+				return { ...result._doc };
 			} catch (err) {
 				throw err;
 			}

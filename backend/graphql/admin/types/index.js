@@ -7,10 +7,14 @@ module.exports = gql`
 	}
 
 	type Order {
+		_id: ID!
 		total: Float!
 		status: String!
 		creator: Guest!
 		products: [ProductIdQty!]!
+		createdAt: String!
+		confirmedAt: String
+		deliveredAt: String
 	}
 
 	type Guest {
@@ -57,11 +61,13 @@ module.exports = gql`
 	type Query {
 		products: [Product!]!
 		login(adminInput: AdminInput): AuthData
+		orders: [Order!]!
 	}
 	type Mutation {
 		createProduct(productInput: ProductInput!): Product!
 		updateProduct(productInput: ProductInput!, productId: String!): Product!
 		deleteProduct(productId: String!): Product!
+		setOrderStatus(orderId: String!, status: String!): Order!
 	}
 	type Subscription {
 		orderPlaced: Order!

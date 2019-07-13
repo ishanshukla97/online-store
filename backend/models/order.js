@@ -5,8 +5,12 @@ const Schema = mongoose.Schema;
 const orderSchema = new Schema({
 	products: [
 		{
-			type: Schema.Types.ObjectId,
-			ref: "Product"
+			_id: {
+				type: Schema.Types.ObjectId
+			},
+			quantity: {
+				type: Number
+			}
 		}
 	],
 	total: {
@@ -26,6 +30,18 @@ const orderSchema = new Schema({
 	onModel: {
 		type: String,
 		enum: ["Guest", "Member"]
+	},
+	createdAt: {
+		type: Date,
+		default: Date.now
+	},
+	confirmedAt: {
+		type: Date,
+		default: null
+	},
+	deliveredAt: {
+		type: Date,
+		default: null
 	}
 });
 
