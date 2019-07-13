@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as actions from "../../actions";
+import * as actions from "../../services/view/actions";
 
 const SideBar = props => {
 	const ITEMS = ["Products", "Orders", "Reviews"];
