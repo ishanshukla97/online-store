@@ -7,8 +7,13 @@ const SERVER = new ApolloServer({
 	typeDefs: TypeDefs,
 	resolvers: Resolvers,
 	subscriptions: {
-		onConnect: (connectionParams, webSocket) => {
-			console.log(connectionParams);
+		onConnect: async (connectionParams, webSocket) => {
+			console.log(connectionParams.authToken);
+			if (connectionParams.authToken) {
+				const auth = await adminAuth(connectionParams.authToken);
+				if (auth.isAuth) return auth;
+			}
+			throw new Error("Invalid Authorization");
 		}
 	},
 	context: async ({ req, connection }) => {
@@ -20,7 +25,6 @@ const SERVER = new ApolloServer({
 			const authHeader = req.headers.authorization || "";
 			const token = authHeader.split(" ")[1];
 			const auth = adminAuth(token);
-			console.log(req.headers.authorization, auth);
 			return auth;
 		}
 	},
