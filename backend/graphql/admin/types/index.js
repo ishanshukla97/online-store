@@ -3,6 +3,7 @@ const { gql } = require("apollo-server-express");
 module.exports = gql`
 	type ProductIdQty {
 		_id: ID!
+		name: String!
 		quantity: Int!
 	}
 

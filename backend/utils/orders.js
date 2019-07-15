@@ -68,7 +68,8 @@ const setOrderStatus = async args => {
 			throw new Error("Invalid status");
 	}
 
-	const result = await order.save();
+	await order.save();
+	const result = await Order.findById(args.orderId).populate(["creator"]);
 	return result;
 };
 

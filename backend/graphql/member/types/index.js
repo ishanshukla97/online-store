@@ -38,6 +38,7 @@ module.exports = gql`
 
 	input ProductIdQty {
 		_id: ID!
+		name: String!
 		quantity: Int!
 	}
 
