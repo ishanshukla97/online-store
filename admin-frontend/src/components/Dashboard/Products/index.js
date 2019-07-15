@@ -25,7 +25,7 @@ class Products extends Component {
 			this.props.client
 		);
 		this.setState({ productInfo: false });
-		this.props.fetchProducts(this.props.auth, this.props.client);
+		await this.props.fetchProducts(this.props.auth, this.props.client);
 	}
 
 	async onClickRemove(product) {
@@ -36,7 +36,7 @@ class Products extends Component {
 			this.props.client
 		);
 		this.setState({ productInfo: false });
-		this.props.fetchProducts(this.props.auth, this.props.client);
+		await this.props.fetchProducts(this.props.auth, this.props.client);
 	}
 
 	async onClickCreate(product) {
@@ -46,7 +46,7 @@ class Products extends Component {
 			this.props.client
 		);
 		this.setState({ productInfo: false });
-		this.props.fetchProducts(this.props.auth, this.props.client);
+		await this.props.fetchProducts(this.props.auth, this.props.client);
 	}
 
 	renderContent() {
@@ -88,7 +88,7 @@ class Products extends Component {
 	}
 
 	render() {
-		return <div className="container">{this.renderContent()}</div>;
+		return <div className="col s10">{this.renderContent()}</div>;
 	}
 }
 

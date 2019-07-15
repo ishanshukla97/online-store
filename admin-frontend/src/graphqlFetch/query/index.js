@@ -42,7 +42,8 @@ export const getProducts = async ({ token }, client) => {
 			headers: {
 				authorization: "Bearer " + token
 			}
-		}
+		},
+		fetchPolicy: "network-only"
 	});
 	return data;
 };

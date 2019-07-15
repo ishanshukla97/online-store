@@ -1,0 +1,92 @@
+.expandable {
+	width: 100%;
+	box-shadow: 0px 5px 20px 3px rgba(0, 0, 0, 0.5);
+	border-radius: 4px;
+}
+
+.expandable-header {
+	width: 100%;
+	padding: 5px;
+	margin: 0px;
+	border-radius: 4px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.expandable-body {
+	padding: 5px;
+}
+
+.subsection-left {
+	width: 33%;
+	padding-left: 2px;
+	text-align: left;
+	font-size: 13pt;
+	font-weight: 800;
+	display: inline-block;
+}
+
+.subsection-left-body {
+	width: 33%;
+	padding-left: 2px;
+	text-align: left;
+	font-size: 10pt;
+	font-weight: 500;
+	display: inline-block;
+}
+
+.subsection-center {
+	width: 33%;
+	text-align: center;
+	font-weight: 500;
+	display: inline-block;
+}
+
+.subsection-center-body {
+	width: 33%;
+	text-align: center;
+	font-weight: 500;
+	display: inline-block;
+}
+
+.subsection-right {
+	width: 33%;
+	padding-right: 2px;
+	text-align: right;
+	font-weight: 500;
+	display: inline-block;
+}
+
+.subsection-right-body {
+	width: 33%;
+	padding-right: 2px;
+	text-align: right;
+	font-weight: 500;
+	display: inline-block;
+}
+
+.pending {
+	background-color: rgb(255, 51, 51);
+}
+
+.confirmed {
+	background-color: rgb(255, 197, 37);
+}
+
+.delivered {
+	background-color: rgb(48, 175, 48);
+}
+
+.cancel {
+	background-color: black;
+}
+
+.expandable-item-wrapper {
+	margin-top: 3px;
+}
+
+.btn-small {
+	width: 100px;
+	height: 30px;
+	float: right;
+}
