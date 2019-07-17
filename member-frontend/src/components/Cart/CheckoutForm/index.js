@@ -4,6 +4,25 @@ import { reduxForm, Field } from "redux-form";
 import "./index.css";
 
 const CheckoutForm = props => {
+	const renderOrderAction = () => {
+		if (
+			props.checkout.data &&
+			props.checkout.data.createGuestOrder === "SUCCESS"
+		) {
+			return (
+				<div className="btn teal form-proceed-btn">
+					<i className="material-icons">check</i>
+				</div>
+			);
+		}
+
+		return (
+			<button type="submit" className="btn red form-proceed-btn">
+				ORDER NOW
+			</button>
+		);
+	};
+
 	return (
 		<div className="form-wrapper">
 			<div className="form ">
@@ -69,12 +88,7 @@ const CheckoutForm = props => {
 						<div className="form-total-price">
 							TOTAL: {props.total}
 						</div>
-						<button
-							type="submit"
-							className="btn red form-proceed-btn"
-						>
-							ORDER NOW
-						</button>
+						{renderOrderAction()}
 					</div>
 				</form>
 			</div>
@@ -100,8 +114,8 @@ const CheckoutField = ({ input, label, type, meta }) => {
 	);
 };
 
-const mapStateToProps = obj => {
-	return obj;
+const mapStateToProps = ({ checkout }) => {
+	return { checkout };
 };
 
 const validate = values => {

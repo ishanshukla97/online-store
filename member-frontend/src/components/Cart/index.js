@@ -1,11 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as actions from "../../services/cart/actions";
+import { withApollo } from "react-apollo";
+import * as cartActions from "../../services/cart/actions";
+import * as checkoutActions from "../../services/checkout/actions";
+import { bindActionCreators } from "redux";
 import CheckoutForm from "./CheckoutForm";
 import "./index.css";
 
 const Cart = props => {
 	const [checkoutView, setCheckoutView] = React.useState(false);
+
 	let totalPrice = props.cart.items.reduce(
 		(total, curr) => total + curr.price * curr.qty,
 		0
@@ -23,7 +27,9 @@ const Cart = props => {
 			return (
 				<CheckoutForm
 					total={totalPrice}
-					onSubmit={values => props.placeOrder(values)}
+					onSubmit={values =>
+						props.checkoutActions.placeOrder(values, props.client)
+					}
 					onCancel={() => setCheckoutView(false)}
 				/>
 			);
@@ -38,7 +44,9 @@ const Cart = props => {
 						<hr className="hr-margin" />
 						<div
 							className="remove-item"
-							onClick={() => props.removeCartItem(item)}
+							onClick={() =>
+								props.cartActions.removeCartItem(item)
+							}
 						>
 							<i className="material-icons">close</i>
 						</div>
@@ -63,7 +71,7 @@ const Cart = props => {
 			<React.Fragment>
 				<div className="cart">
 					<div
-						onClick={() => props.toggleCart()}
+						onClick={() => props.cartActions.toggleCart()}
 						className="cross-btn"
 					>
 						<i className="material-icons">close</i>
@@ -95,7 +103,16 @@ const mapStateToProps = ({ cart }) => {
 	return { cart };
 };
 
-export default connect(
-	mapStateToProps,
-	actions
-)(Cart);
+const mapDispatchToProps = dispatch => {
+	return {
+		cartActions: bindActionCreators(cartActions, dispatch),
+		checkoutActions: bindActionCreators(checkoutActions, dispatch)
+	};
+};
+
+export default withApollo(
+	connect(
+		mapStateToProps,
+		mapDispatchToProps
+	)(Cart)
+);
