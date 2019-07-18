@@ -60,6 +60,7 @@ module.exports = {
 						products: order.products.map(product => {
 							return {
 								_id: product._id,
+								name: product.name,
 								quantity: product.quantity
 							};
 						})

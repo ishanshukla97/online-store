@@ -8,7 +8,6 @@ const SERVER = new ApolloServer({
 	resolvers: Resolvers,
 	subscriptions: {
 		onConnect: async (connectionParams, webSocket) => {
-			console.log(connectionParams.authToken);
 			if (connectionParams.authToken) {
 				const auth = await adminAuth(connectionParams.authToken);
 				if (auth.isAuth) return auth;
