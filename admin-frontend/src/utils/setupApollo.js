@@ -15,7 +15,7 @@ export default function(persistedState = undefined) {
 		options: {
 			reconnect: true,
 			connectionParams: {
-				authToken: persistedState
+				authToken: persistedState && persistedState.auth
 					? persistedState.auth.token
 					: undefined
 			}

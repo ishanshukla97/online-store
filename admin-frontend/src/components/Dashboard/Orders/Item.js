@@ -11,7 +11,7 @@ const Item = props => {
 		return props.products.map(product => {
 			return (
 				<div key={product._id}>
-					<span style={{ paddingRight: "3px" }}>{product._id}</span>
+					<span style={{ paddingRight: "3px" }}>{product.name}</span>
 					<span style={{ fontWeight: "600" }}>
 						QTY: x{product.quantity}
 					</span>

@@ -18,6 +18,7 @@ const GET_ORDERS = gql`
 			}
 			products {
 				_id
+				name
 				quantity
 			}
 			createdAt
@@ -36,7 +37,7 @@ const Orders = props => (
 			return (
 				<div className="col s10">
 					<ul className="expandable">
-						{data.orders.map(order => (
+						{data.orders.reverse().map(order => (
 							<Item
 								key={order._id}
 								{...order}
