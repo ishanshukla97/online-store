@@ -36,15 +36,16 @@ const Filter = props => {
 		});
 	};
 	return (
-		<div className="grey lighten-2">
-			<h5>FILTER</h5>
+		<div>
+			<h5 style={{ textAlign: "center" }}>Categories</h5>
 			<div className="collection">{renderCategory()}</div>
 			<a
-				className="btn red lighten-1"
+				className="btn-floating btn-large red lighten-1"
+				style={{ margin: "0 40%" }}
 				href="#!"
 				onClick={() => onClickFilter("")}
 			>
-				Clear
+				<i className="material-icons">close</i>
 			</a>
 		</div>
 	);

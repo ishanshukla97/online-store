@@ -14,7 +14,7 @@ const Cart = props => {
 		(total, curr) => total + curr.price * curr.qty,
 		0
 	);
-	totalPrice += totalPrice * 0.05;
+	totalPrice = totalPrice.toFixed(2);
 
 	const proceedCheckout = () => {
 		if (props.cart.items.length > 0) {
@@ -56,13 +56,18 @@ const Cart = props => {
 						</div>
 						<div className="cart-item-price">
 							{" "}
-							₹ {item.qty * item.price}
+							₹ {(item.qty * item.price).toFixed(2)}
 						</div>
 					</div>
 				);
 			});
 		} else {
-			return <div>Oops your cart looks empty!</div>;
+			return (
+				<div className="empty-cart-container">
+					<i className="material-icons large">add_shopping_cart</i>
+					<h3 style={{ fontSize: "15pt" }}>Add something to Cart!</h3>
+				</div>
+			);
 		}
 	};
 

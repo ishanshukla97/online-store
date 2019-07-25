@@ -7,6 +7,7 @@ import { loadState, saveState } from "./utils/localStorage.js";
 import App from "./App";
 import reducers from "./services/reducers";
 import "materialize-css/dist/css/materialize.min.css";
+import "materialize-social/css/materialize.min.css";
 import throttle from "lodash/throttle";
 import { ApolloProvider } from "react-apollo";
 import apolloClient from "./utils/setupApollo";

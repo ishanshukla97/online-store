@@ -1,10 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
-import Header from "./components/Header";
 import Desk from "./components/Desk";
 import Cart from "./components/Cart";
 import Error from "./components/Error";
 import Loading from "./components/Loading";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
 
 function App() {
 	return (
@@ -13,9 +15,11 @@ function App() {
 				<Loading />
 				<Error />
 				<Cart />
-				<Header />
+				<NavBar />
 
-				<Route path="/" component={Desk} />
+				<Route exact path="/" component={Home} />
+				<Route path="/shop" component={Desk} />
+				<Footer />
 			</div>
 		</BrowserRouter>
 	);
