@@ -1,0 +1,24 @@
+@import "../../../../sass/main";
+
+.products-table {
+	position: relative;
+	width: 80%;
+	margin: 1rem;
+	@include box-shadow-1;
+	border-radius: 5px;
+	padding: 4rem;
+	background-color: $color-grey-light-1;
+	font-size: 1.5rem;
+
+	&__item {
+		cursor: pointer;
+		transition: all 0.2s;
+
+		&:hover {
+			background-color: $color-grey-light-2;
+		}
+		&:active {
+			background-color: $color-grey-dark-2;
+		}
+	}
+}

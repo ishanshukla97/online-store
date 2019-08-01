@@ -11,6 +11,7 @@ import "./index.css";
 import App from "./App";
 import { ApolloProvider } from "react-apollo";
 import apolloClient from "./utils/setupApollo";
+import "./sass/_main.scss";
 
 const persistedState = loadState();
 const client = apolloClient(persistedState);

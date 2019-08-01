@@ -1,0 +1,18 @@
+@import "../../sass/main";
+
+.login-form {
+	position: relative;
+	width: 50%;
+	height: 40rem;
+	margin: 0 auto;
+	@include box-shadow-1;
+	border-radius: 5px;
+
+	&__form {
+		@include absCenter;
+	}
+
+	&__label {
+		font-size: $default-font-size;
+	}
+}

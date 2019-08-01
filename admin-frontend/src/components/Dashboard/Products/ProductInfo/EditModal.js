@@ -1,5 +1,6 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
+import "./style.scss";
 
 const ProductEdit = props => {
 	const itemKeys = Object.keys(props.item);
@@ -10,8 +11,7 @@ const ProductEdit = props => {
 			return (
 				<button
 					type="submit"
-					className="btn-flat teal right"
-					style={{ marginLeft: "10px" }}
+					className="btn product-form__action--update"
 				>
 					Update
 				</button>
@@ -19,11 +19,7 @@ const ProductEdit = props => {
 		}
 		isNew = true;
 		return (
-			<button
-				type="submit"
-				className="btn-flat teal right"
-				style={{ marginLeft: "10px" }}
-			>
+			<button type="submit" className="btn product-form__action--create">
 				Create
 			</button>
 		);
@@ -31,12 +27,8 @@ const ProductEdit = props => {
 
 	const renderForm = () => {
 		return (
-			<div
-				className="container card"
-				style={{ position: "fixed", width: "60%", marginLeft: "10%" }}
-			>
+			<div className="product-form">
 				<form
-					className="card-content"
 					onSubmit={props.handleSubmit(values =>
 						props.onSubmit(values)
 					)}
@@ -52,19 +44,16 @@ const ProductEdit = props => {
 							/>
 						);
 					})}
-					<div
-						className="card-action"
-						style={{ marginBottom: "30px" }}
-					>
+					<div className="product-form__action">
 						<button
-							className="btn-flat red lighten-2 left"
+							className="btn product-form__action--cancel"
 							onClick={() => props.onCancel()}
 						>
 							Cancel
 						</button>
 						{renderSubmit()}
 						<button
-							className="btn-flat red darken-2 right"
+							className="btn product-form__action--delete"
 							onClick={() => props.onRemove(props.item)}
 							disabled={isNew}
 						>
@@ -79,20 +68,15 @@ const ProductEdit = props => {
 	return renderForm();
 };
 
-const ModalField = ({ input, label, type, meta }) => {
+const ModalField = props => {
+	const { input, label, type, meta } = props;
+
 	const isId = label === "_ID" ? true : false;
 	return (
-		<div>
+		<div className="product-form__input">
 			<label>{label}</label>
-			<input
-				type={type}
-				{...input}
-				style={{ marginBottom: "5px" }}
-				disabled={isId}
-			/>
-			<div className="red-text" style={{ marginBottom: "5	px" }}>
-				{meta.touched ? meta.error : ""}
-			</div>
+			<input type={type} {...input} disabled={isId} />
+			<div className="red-text">{meta.touched ? meta.error : ""}</div>
 		</div>
 	);
 };

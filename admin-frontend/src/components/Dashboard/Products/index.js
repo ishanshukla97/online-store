@@ -88,7 +88,12 @@ class Products extends Component {
 	}
 
 	render() {
-		return <div className="col s10">{this.renderContent()}</div>;
+		return (
+			<div>
+				<h2 className="heading-secondary">Products</h2>
+				{this.renderContent()}
+			</div>
+		);
 	}
 }
 

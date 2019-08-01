@@ -6,6 +6,7 @@ import { Redirect } from "react-router-dom";
 import * as actions from "../../services/auth/actions";
 import { connect } from "react-redux";
 import M from "materialize-css";
+import "./style.scss";
 
 class LoginForm extends Component {
 	renderInvalidLogin() {
@@ -22,8 +23,9 @@ class LoginForm extends Component {
 
 	render() {
 		return (
-			<div className="container">
+			<div className="login-form">
 				<form
+					className="login-form__form"
 					onSubmit={this.props.handleSubmit(values =>
 						this.props.fetchUser(values, this.props.client)
 					)}
@@ -40,7 +42,10 @@ class LoginForm extends Component {
 						label="Password"
 						component={LoginField}
 					/>
-					<button type="submit" className="teal btn-flat">
+					<button
+						type="submit"
+						className="btn u-lr-margin-medium u-margin-top-small"
+					>
 						Submit
 					</button>
 					{this.renderInvalidLogin()}

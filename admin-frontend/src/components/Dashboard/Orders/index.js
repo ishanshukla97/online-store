@@ -4,6 +4,8 @@ import { Query } from "react-apollo";
 import Item from "./Item";
 import { withApollo } from "react-apollo";
 import Order from "../../../graphqlFetch/mutation/order";
+import { Table } from "react-bootstrap";
+import "./style.scss";
 
 const GET_ORDERS = gql`
 	{
@@ -35,19 +37,33 @@ const Orders = props => (
 			if (error) return `Error! ${error.message}`;
 
 			return (
-				<div className="col s10">
-					<ul className="expandable">
-						{data.orders.reverse().map(order => (
-							<Item
-								key={order._id}
-								{...order}
-								setStatus={val =>
-									Order.setStatus(val, props.client)
-								}
-							/>
-						))}
-					</ul>
-				</div>
+				<React.Fragment>
+					<h2 className="heading-secondary">Orders</h2>
+					<Table className="orders-table" responsive="sm">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Phone</th>
+								<th>Address</th>
+								<th>Total</th>
+								<th>Details</th>
+								<th>Status</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{data.orders.reverse().map(order => (
+								<Item
+									key={order._id}
+									{...order}
+									setStatus={val =>
+										Order.setStatus(val, props.client)
+									}
+								/>
+							))}
+						</tbody>
+					</Table>
+				</React.Fragment>
 			);
 		}}
 	</Query>

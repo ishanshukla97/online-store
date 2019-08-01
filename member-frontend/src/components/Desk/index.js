@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import Filter from "./Filter";
 import { connect } from "react-redux";
 import Item from "./Item";
@@ -27,8 +28,13 @@ class Desk extends Component {
 					<Filter />
 				</div>
 				<div className="col s12 m9">
-					{this.props.filterDesk
-						? this.props.filterDesk.map(product => {
+					<ReactCSSTransitionGroup
+						transitionName="example"
+						transitionEnterTimeout={500}
+						transitionLeaveTimeout={300}
+					>
+						{this.props.filterDesk ? (
+							this.props.filterDesk.map(product => {
 								return (
 									<Item
 										key={product._id}
@@ -36,8 +42,11 @@ class Desk extends Component {
 										item={product}
 									/>
 								);
-						  })
-						: "Loading..."}
+							})
+						) : (
+							<div>Loading</div>
+						)}
+					</ReactCSSTransitionGroup>
 				</div>
 			</div>
 		);

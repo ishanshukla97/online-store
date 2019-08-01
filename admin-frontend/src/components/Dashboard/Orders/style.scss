@@ -1,0 +1,12 @@
+@import "../../../sass/main";
+
+.orders-table {
+	position: relative;
+	width: 80%;
+	margin: 1rem;
+	@include box-shadow-1;
+	border-radius: 5px;
+	padding: 4rem;
+	background-color: $color-grey-light-1;
+	font-size: 1.5rem;
+}

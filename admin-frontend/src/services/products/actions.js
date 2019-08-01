@@ -1,4 +1,4 @@
-import Product from "../../graphqlFetch/mutation";
+import Product from "../../graphqlFetch/mutation/product";
 import { getProducts } from "../../graphqlFetch/query/index";
 import {
 	FETCH_PRODUCTS,
@@ -33,7 +33,6 @@ export const createProduct = (product, auth, client) => {
 };
 
 export const updateProduct = (product, auth, client) => {
-	console.log(product, auth, client);
 	return async function(dispatch) {
 		try {
 			const res = await Product.update(product, auth, client);

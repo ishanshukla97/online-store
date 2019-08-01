@@ -12,11 +12,6 @@ const NavBar = props => {
 	const handleScroll = () => {
 		setExpanded(window.pageYOffset > 200);
 	};
-	const handleSidenav = () => {
-		const elems = document.querySelectorAll(".sidenav");
-		const instances = M.Sidenav.init(elems);
-		console.log(M);
-	};
 
 	React.useEffect(() => {
 		window.addEventListener("scroll", handleScroll);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import SideBar from "./SideBar";
+import NavBar from "./NavBar";
 import Products from "./Products";
 import Orders from "./Orders";
 import Reviews from "./Reviews";
@@ -20,9 +20,9 @@ class Dashboard extends Component {
 	}
 	render() {
 		return (
-			<div className="row">
-				<SideBar />
-				{this.renderView()}
+			<div>
+				<NavBar />
+				<div className="content">{this.renderView()}</div>
 			</div>
 		);
 	}

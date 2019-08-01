@@ -15,9 +15,10 @@ export default function(persistedState = undefined) {
 		options: {
 			reconnect: true,
 			connectionParams: {
-				authToken: persistedState && persistedState.auth
-					? persistedState.auth.token
-					: undefined
+				authToken:
+					persistedState && persistedState.auth
+						? persistedState.auth.token
+						: undefined
 			}
 		}
 	});
@@ -39,7 +40,7 @@ export default function(persistedState = undefined) {
 
 	const authLink = setContext(async (_, { headers }) => {
 		let token;
-		if (persistedState) {
+		if (persistedState && persistedState.auth) {
 			token = persistedState.auth.token || undefined;
 			return {
 				headers: {

@@ -1,20 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import LoginForm from "./LoginForm";
 import { withApollo } from "react-apollo";
 
-class Login extends Component {
-	render() {
-		return (
-			<div
-				style={{
-					width: "500px",
-					marginLeft: "30%"
-				}}
-			>
-				<LoginForm client={this.props.client} />
-			</div>
-		);
-	}
-}
+const Login = props => {
+	return <LoginForm client={props.client} />;
+};
 
 export default withApollo(Login);
