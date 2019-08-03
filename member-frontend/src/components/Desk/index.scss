@@ -1,0 +1,21 @@
+@import "../../sass/main";
+
+.desk-banner {
+	position: relative;
+	height: 60vh;
+	background-image: url("./bg_6.jpg");
+	background-size: cover;
+
+	&__heading {
+		position: absolute;
+		font-size: 5rem;
+		font-weight: 500;
+		left: 15%;
+		top: 10%;
+		color: black;
+
+		@include respond(phone) {
+			font-size: 4rem;
+		}
+	}
+}

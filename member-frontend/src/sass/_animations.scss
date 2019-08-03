@@ -1,0 +1,41 @@
+@keyframes moveInTop {
+	0% {
+		opacity: 0;
+		transform: translateY(-4rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes moveOutTop {
+	0% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-4rem);
+	}
+}
+
+@keyframes revealInOut {
+	0% {
+		opacity: 0;
+		transform: translateY(1rem);
+	}
+	30% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	70% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateY(-1rem);
+	}
+}

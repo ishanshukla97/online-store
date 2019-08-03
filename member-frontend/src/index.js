@@ -11,6 +11,7 @@ import "materialize-social/css/materialize.min.css";
 import throttle from "lodash/throttle";
 import { ApolloProvider } from "react-apollo";
 import apolloClient from "./utils/setupApollo";
+import "./sass/_main.scss";
 
 const persistedState = loadState();
 

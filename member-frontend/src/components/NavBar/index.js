@@ -3,8 +3,7 @@ import classnames from "classnames";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../services/cart/actions";
-import "./index.css";
-import M from "materialize-css";
+import "./index.scss";
 
 const NavBar = props => {
 	const [expanded, setExpanded] = React.useState(false);
@@ -23,55 +22,85 @@ const NavBar = props => {
 
 	return (
 		<React.Fragment>
+			<nav className="navigation">
+				<a
+					className="navigation__item"
+					href="#!"
+					onClick={() => props.history.push("/")}
+				>
+					Home
+				</a>
+				<a
+					className="navigation__item"
+					href="#!"
+					onClick={() => props.history.push("/shop")}
+				>
+					Shop
+				</a>
+				<a
+					className="navigation__item"
+					href="#!"
+					onClick={() => props.history.push("/about")}
+				>
+					About
+				</a>
+
+				<a
+					href="#!"
+					onClick={() => props.toggleCart()}
+					className="right"
+				>
+					<span className="badge amber">
+						{props.cart.items.length}
+					</span>
+					<i className="material-icons navigation__item">
+						shopping_cart
+					</i>
+				</a>
+			</nav>
 			<nav
 				className={classnames(
-					{ navbar: !expanded },
-					{ "navbar--expanded": expanded }
+					{
+						navigation__fixed: expanded,
+						"navigation__fixed--hidden": !expanded
+					},
+					"navigation"
 				)}
 			>
-				<div className="nav-wrapper">
-					<ul className="left">
-						<li>
-							<a
-								className="navbar-item"
-								href="#!"
-								onClick={() => props.history.push("/")}
-							>
-								Home
-							</a>
-						</li>
-						<li>
-							<a
-								className="navbar-item"
-								href="#!"
-								onClick={() => props.history.push("/shop")}
-							>
-								Shop
-							</a>
-						</li>
-						<li>
-							<a
-								className="navbar-item"
-								href="#!"
-								onClick={() => props.history.push("/about")}
-							>
-								About
-							</a>
-						</li>
-					</ul>
-					<a
-						href="#!"
-						onClick={() => props.toggleCart()}
-						className="right"
-					>
-						<span className="badge amber">
-							{props.cart.items.length}
-						</span>
-						<i className="material-icons navbar-item">
-							shopping_cart
-						</i>
-					</a>
-				</div>
+				<a
+					className="navigation__item"
+					href="#!"
+					onClick={() => props.history.push("/")}
+				>
+					Home
+				</a>
+				<a
+					className="navigation__item"
+					href="#!"
+					onClick={() => props.history.push("/shop")}
+				>
+					Shop
+				</a>
+				<a
+					className="navigation__item"
+					href="#!"
+					onClick={() => props.history.push("/about")}
+				>
+					About
+				</a>
+
+				<a
+					href="#!"
+					onClick={() => props.toggleCart()}
+					className="right"
+				>
+					<span className="badge amber">
+						{props.cart.items.length}
+					</span>
+					<i className="material-icons navigation__item">
+						shopping_cart
+					</i>
+				</a>
 			</nav>
 		</React.Fragment>
 	);

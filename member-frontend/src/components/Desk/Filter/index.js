@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../../../services/filter/actions";
 import { getUnique } from "../../../utils/filter";
-import "./index.css";
+import "./index.scss";
 
 const Filter = props => {
 	const categories = getUnique(props.desk.map(a => a.category));
@@ -19,15 +19,12 @@ const Filter = props => {
 	}, [props]);
 
 	const renderCategory = () => {
-		return categories.map(item => {
+		return categories.map((item, idx) => {
 			return (
 				<a
 					href="#!"
 					key={item}
-					className={
-						"collection-item filter-btn " +
-						(currentFilter === item ? "active" : "")
-					}
+					className={"filter__btn filter__btn--" + (idx + 1)}
 					onClick={() => onClickFilter(item)}
 				>
 					{item}
@@ -36,16 +33,14 @@ const Filter = props => {
 		});
 	};
 	return (
-		<div>
-			<h5 style={{ textAlign: "center" }}>Categories</h5>
-			<div className="collection">{renderCategory()}</div>
+		<div className="filter">
+			{renderCategory()}
 			<a
-				className="btn-floating btn-large red lighten-1"
-				style={{ margin: "0 40%" }}
+				className="filter__btn filter__btn--default"
 				href="#!"
 				onClick={() => onClickFilter("")}
 			>
-				<i className="material-icons">close</i>
+				All
 			</a>
 		</div>
 	);

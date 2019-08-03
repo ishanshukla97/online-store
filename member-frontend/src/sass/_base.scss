@@ -1,0 +1,48 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	//This defines what 1rem is
+	font-size: 62.5%; //1 rem = 10px; 10px/16px(browser default) = 62.5%
+
+	@include respond(tab-land) {
+		font-size: 56.25%;
+	}
+	@include respond(tab-port) {
+		font-size: 50%;
+	}
+	@include respond(big-desktop) {
+		font-size: 75%;
+	}
+}
+
+body {
+	box-sizing: border-box;
+}
+
+.btn {
+	border: 2px solid $color-white;
+	padding: 0 3rem;
+	font-size: $default-font-size;
+	background-color: transparent;
+	transition: all 0.2s;
+	box-shadow: none;
+
+	&:hover,
+	&:focus {
+		background-color: rgba($color-white, 0.1);
+		transform: translateY(-2px);
+		box-shadow: none;
+	}
+	&:active {
+		background-color: rgba($color-white, 1);
+		color: $color-black;
+		transform: translateY(2px);
+		box-shadow: none;
+	}
+}

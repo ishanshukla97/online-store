@@ -1,0 +1,132 @@
+@import "../../sass/main";
+
+.banner {
+	height: 95vh;
+	background-image: url("./banner-1.jpg");
+	background-size: cover;
+	background-position: top;
+}
+
+.features {
+	margin: 15rem 0;
+	display: flex;
+	flex-direction: row;
+	@include respond(phone) {
+		flex-direction: column;
+	}
+
+	&__box {
+		width: 33%;
+		text-align: center;
+		padding: 3rem;
+		transition: all 0.2s;
+		background-color: $color-grey-light-1;
+		&:not(:last-child) {
+			margin-right: 2rem;
+			@include respond(phone) {
+				margin-bottom: 2rem;
+			}
+		}
+		box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+
+		@include respond(phone) {
+			width: 100%;
+			margin: 0;
+		}
+
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+		}
+	}
+
+	&__heading {
+		color: black;
+	}
+}
+
+.shop-categories {
+	width: 100%;
+	&__content {
+		margin: 5rem 0;
+		padding: 7rem;
+	}
+
+	&__box {
+		position: relative;
+		display: inline-block;
+		width: 25%;
+		transition: all 0.2s;
+		overflow: hidden;
+		margin: 0 4.6rem;
+
+		@include respond(phone) {
+			width: 100%;
+			margin: 0;
+		}
+
+		&__caption {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, 20%);
+			opacity: 0;
+			color: $color-white;
+			text-transform: uppercase;
+			font-size: 1.7rem;
+			text-align: center;
+			transition: all 0.5s;
+			backface-visibility: hidden;
+			padding: 1rem;
+			border: 2px solid $color-white;
+
+			&:hover {
+				opacity: 1;
+				transform: translate(-50%, -50%);
+				cursor: pointer;
+			}
+		}
+
+		&:hover &__caption {
+			opacity: 1;
+			transform: translate(-50%, -50%);
+		}
+
+		&__img {
+			width: 100%;
+			background-size: cover;
+			transition: all 0.2s;
+			transform: scale(1);
+		}
+
+		&:hover &__img {
+			transform: scale(1.1);
+			filter: blur(2px) brightness(50%);
+			cursor: pointer;
+		}
+	}
+}
+
+.heading-primary {
+	&--main {
+		background-color: $color-white;
+		letter-spacing: 2rem !important;
+		bottom: 20%;
+		right: 10%;
+		font-size: 5rem !important;
+	}
+
+	&--animated {
+		animation-name: revealInOut;
+		animation-fill-mode: both;
+		animation-duration: 5s;
+		animation-timing-function: ease-in-out;
+	}
+}
+
+.btn {
+	position: absolute;
+	bottom: 5%;
+	right: 30%;
+	height: 5rem !important;
+}
