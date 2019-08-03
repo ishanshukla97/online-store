@@ -73,6 +73,9 @@ const Home = () => {
 			</section>
 			<section className="shop-categories">
 				<div className="shop-categories__content">
+					<h2 className="heading-secondary u-margin-bottom-big">
+						Shop by categories
+					</h2>
 					<div className="shop-categories__box">
 						<img
 							src="cat-1.jpg"
