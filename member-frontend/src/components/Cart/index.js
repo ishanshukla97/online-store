@@ -5,7 +5,7 @@ import * as cartActions from "../../services/cart/actions";
 import * as checkoutActions from "../../services/checkout/actions";
 import { bindActionCreators } from "redux";
 import CheckoutForm from "./CheckoutForm";
-import "./index.css";
+import "./index.scss";
 
 const Cart = props => {
 	const [checkoutView, setCheckoutView] = React.useState(false);

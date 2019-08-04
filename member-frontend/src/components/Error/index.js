@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+import "./index.scss";
 import * as actions from "../../services/error/actions";
 import { connect } from "react-redux";
 

@@ -8,6 +8,7 @@
 	font-size: 1rem;
 	flex-direction: row;
 	justify-content: flex-end;
+	z-index: $z-index-navigation;
 
 	@include respond(phone) {
 		justify-content: center;

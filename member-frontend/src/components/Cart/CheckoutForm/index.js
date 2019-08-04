@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
-import "./index.css";
+import "./index.scss";
 
 const CheckoutForm = props => {
 	const renderOrderAction = () => {

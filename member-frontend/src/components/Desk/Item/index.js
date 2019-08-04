@@ -4,11 +4,13 @@ import { connect } from "react-redux";
 import * as actions from "../../../services/cart/actions";
 
 const Item = props => {
+	console.log();
+
 	return (
 		<div className="col m4" key={props._id}>
 			<div className="card medium">
 				<div className="card-image">
-					<img src="https://images.unsplash.com/photo-1561363702-e07252da3399?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
+					<img src={props.img} />
 					<span className="card-title">{props.title}</span>
 				</div>
 				<div className="card-content">

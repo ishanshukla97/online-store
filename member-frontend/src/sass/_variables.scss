@@ -38,3 +38,9 @@ $color-black: black;
 
 //FONT
 $default-font-size: 1.6rem;
+
+//z-indexes
+$z-index-navigation: 4000;
+$z-index-cart: 5000;
+$z-index-errors: 6000;
+$z-index-checkout: 7000;
