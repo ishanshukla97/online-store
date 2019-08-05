@@ -3,11 +3,12 @@ import Filter from "./Filter";
 import { connect } from "react-redux";
 import Item from "./Item";
 import * as actions from "../../services/desk/actions";
+import { withApollo } from "react-apollo";
 import "./index.scss";
 
 class Desk extends Component {
 	async componentDidMount() {
-		await this.props.fetchProducts();
+		await this.props.getProducts(this.props.client);
 	}
 
 	render() {
@@ -50,7 +51,9 @@ function mapStateToProps({ filterDesk }) {
 	return { filterDesk };
 }
 
-export default connect(
-	mapStateToProps,
-	actions
-)(Desk);
+export default withApollo(
+	connect(
+		mapStateToProps,
+		actions
+	)(Desk)
+);

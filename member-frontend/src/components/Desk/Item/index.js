@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import * as actions from "../../../services/cart/actions";
 
 const Item = props => {
-	console.log();
-
 	return (
 		<div className="col m4" key={props._id}>
 			<div className="card medium">

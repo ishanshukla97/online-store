@@ -12,7 +12,6 @@ export const createGuestOrder = async (inputs, client) => {
 			mutation,
 			variables: { guestOrderInput: inputs }
 		});
-		console.log(data);
 
 		return data;
 	} catch (err) {

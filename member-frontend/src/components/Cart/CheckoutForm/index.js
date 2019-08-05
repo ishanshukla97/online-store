@@ -97,7 +97,6 @@ const CheckoutForm = props => {
 };
 
 const CheckoutField = ({ input, label, type, meta }) => {
-	console.log(meta.error == undefined);
 	return (
 		<div className="input-container">
 			<label className="label">{label}</label>
@@ -133,7 +132,6 @@ const validate = values => {
 	if (!values.address) {
 		errors.address = true;
 	}
-	console.log(values);
 	if (!values.locality) {
 		errors.locality = true;
 	}
