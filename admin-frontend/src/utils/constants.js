@@ -5,3 +5,4 @@ export const ORDER_STATUS = {
 	CONFIRMED: "CONFIRMED",
 	DELIVERED: "DELIVERED"
 };
+console.log(process.env);
