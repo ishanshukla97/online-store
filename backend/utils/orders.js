@@ -1,4 +1,5 @@
 const Guest = require("../models/guest");
+const Member = require("../models/member");
 const Product = require("../models/product");
 const Order = require("../models/order");
 const PubSub = require("../graphql/PubSub");
@@ -47,6 +48,32 @@ const createGuestOrder = async args => {
 	}
 };
 
+const createMemberOrder = async args => {
+	try {
+		const products = await Product.find({
+			_id: { $in: args.memberOrderInput.products }
+		});
+
+		let total = getTotal(products, args.memberOrderInput.products);
+		console.log(args);
+
+		const order = new Order({
+			products: args.memberOrderInput.products,
+			total,
+			onModel: "Member",
+			status: ORDER_STATE.PENDING,
+			creator: args.member
+		});
+
+		await order.save();
+		return "SUCCESS";
+	} catch (err) {
+		console.log(err);
+
+		return "FAILED";
+	}
+};
+
 const setOrderStatus = async args => {
 	const order = await Order.findById(args.orderId);
 	switch (args.status) {
@@ -80,6 +107,7 @@ const orders = async () => {
 
 module.exports = {
 	createGuestOrder,
+	createMemberOrder,
 	setOrderStatus,
 	orders
 };

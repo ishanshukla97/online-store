@@ -24,6 +24,7 @@ module.exports = gql`
 
 	type Member {
 		contact: String!
+		email: String!
 		password: String!
 		address: String!
 		name: String!
@@ -32,8 +33,16 @@ module.exports = gql`
 	union User = Guest | Member
 
 	input MemberLogin {
-		username: String!
+		email: String!
 		password: String!
+	}
+
+	input MemberRegister {
+		contact: String!
+		email: String!
+		password: String!
+		address: String!
+		name: String!
 	}
 
 	input ProductIdQty {
@@ -49,10 +58,17 @@ module.exports = gql`
 		products: [ProductIdQty!]!
 	}
 
+	input MemberOrderInput {
+		products: [ProductIdQty!]!
+	}
+
 	type Query {
 		products: [Product!]!
+		loginUser(memberLoginInput: MemberLogin): AuthData
 	}
 	type Mutation {
 		createGuestOrder(guestOrderInput: GuestOrderInput): String
+		registerUser(memberRegisterInput: MemberRegister): String
+		createMemberOrder(memberOrderInput: MemberOrderInput): String
 	}
 `;
